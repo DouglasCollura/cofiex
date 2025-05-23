@@ -7,6 +7,15 @@ export PATH="$PATH:`pwd`/flutter/bin"
 # Verificar la instalación
 flutter doctor
 
+# Crear archivo .env temporal si no existe
+if [ ! -f .env ]; then
+    echo "Creando archivo .env temporal..."
+    echo "API_URL=https://api.example.com" > .env
+    echo "API_KEY=temp_key" >> .env
+    echo "APP_NAME=Cofiex" >> .env
+    echo "APP_ENV=production" >> .env
+fi
+
 # Obtener dependencias
 flutter pub get
 
