@@ -17,6 +17,7 @@ class AppTheme {
 
   static const Color appBlue = Color(0xFF004A77);
   static const Color appLightBlue = Color(0xFF4498E7);
+  static const Color appLightBlueWidget = Color(0xFFE8F0FE);
   static const Color appPink = Color(0xffff0069);
   static const Color appLightGray = Color(0xfff1f1f1);
   static const Color appYellow = Color(0xffffd700);

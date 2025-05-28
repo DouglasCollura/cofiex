@@ -1,3 +1,4 @@
+import 'package:cofiex/src/config/theme/app_theme.dart';
 import 'package:cofiex/src/modules/layout/layout_bottom_navigation.dart';
 import 'package:flutter/material.dart';
 
@@ -126,6 +127,7 @@ class _BaseScreenState extends State<BaseScreen> {
 
                   final file = _files[index];
                   return Card(
+                    color: AppTheme.appLightBlueWidget,
                     margin: const EdgeInsets.only(bottom: 12),
                     child: ListTile(
                       contentPadding: const EdgeInsets.all(16),
@@ -169,7 +171,7 @@ class _BaseScreenState extends State<BaseScreen> {
                           ),
                           const SizedBox(height: 4),
                           Text(
-                            '${file.isReceived ? "Recibido" : "Enviado"} el ${_formatDate(file.uploadDate)}',
+                            _formatDate(file.uploadDate),
                             style: TextStyle(
                               color: Colors.grey[600],
                               fontSize: 12,
@@ -177,11 +179,30 @@ class _BaseScreenState extends State<BaseScreen> {
                           ),
                         ],
                       ),
-                      trailing: IconButton(
+                      trailing: PopupMenuButton<String>(
                         icon: const Icon(Icons.more_vert),
-                        onPressed: () {
-                          // Aquí irían las acciones del menú contextual
+                        onSelected: (value) {
+                          if (value == 'download') {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('Descargando ${file.fileName}...'),
+                                duration: const Duration(seconds: 2),
+                              ),
+                            );
+                          }
                         },
+                        itemBuilder: (BuildContext context) => [
+                          const PopupMenuItem<String>(
+                            value: 'download',
+                            child: Row(
+                              children: [
+                                Icon(Icons.download, color: Colors.blue),
+                                SizedBox(width: 8),
+                                Text('Descargar'),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   );

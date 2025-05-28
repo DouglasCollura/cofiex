@@ -61,7 +61,7 @@ class DesktopLayout extends StatelessWidget {
                 const Text('¿No recuerdas tu contraseña?'),
                 TextButton(
                   onPressed: () {
-                    context.push('/recovery_password');
+                    context.go('/recovery_password');
                   },
                   child: const Text(
                     'Haz click aqui para recuperar tu contraseña',

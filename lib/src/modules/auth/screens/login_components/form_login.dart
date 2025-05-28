@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sizer/sizer.dart';
 import 'package:cofiex/src/config/theme/app_theme.dart';
-import 'package:cofiex/src/shared/widgets/inputs/custom_filled_button.dart';
 import 'package:cofiex/src/shared/widgets/widgets.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
@@ -59,7 +58,7 @@ class _FormLoginState extends State<FormLogin> {
         CustomFilledButton(
           buttonColor: AppTheme.appBlue,
           onPressed: () {
-            context.push('/home');
+            context.go('/select-company');
           },
           text: 'INICIAR SESIÓN',
         ),

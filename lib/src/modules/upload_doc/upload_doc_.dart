@@ -14,6 +14,8 @@ class UploadDocScreen extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Subir Documento'),
           centerTitle: true,
+          automaticallyImplyLeading: false,
+
         ),
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
