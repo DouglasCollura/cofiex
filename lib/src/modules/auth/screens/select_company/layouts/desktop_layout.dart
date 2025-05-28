@@ -1,6 +1,8 @@
 import 'package:cofiex/src/config/theme/app_theme.dart';
+import 'package:cofiex/src/shared/helpers/navigation_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class DesktopLayout extends StatelessWidget {
   final List<Map<String, dynamic>> companies;
@@ -56,7 +58,11 @@ class DesktopLayout extends StatelessWidget {
                         ),
                         child: InkWell(
                           onTap: () {
-                            context.replace('/home');
+                            if(kIsWeb){
+                              context.replace('/home');
+                            }else{
+                              NavigationHelper.replaceWithUrl(context, '/home');
+                            }
                           },
                           borderRadius: BorderRadius.circular(12),
                           child: Padding(

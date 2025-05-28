@@ -1,4 +1,5 @@
 import 'package:cofiex/src/config/theme/app_theme.dart';
+import 'package:cofiex/src/shared/helpers/navigation_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -30,7 +31,7 @@ class LayoutBottomNavigationWeb extends StatelessWidget {
                 label: 'Inicio',
                 path: '/home',
               ),
-               _buildNavItem(
+              _buildNavItem(
                 context,
                 icon: Icons.folder_outlined,
                 label: 'Archivos',
@@ -64,7 +65,9 @@ class LayoutBottomNavigationWeb extends StatelessWidget {
     final isSelected = GoRouterState.of(context).matchedLocation == path;
 
     return InkWell(
-      onTap: () => context.go(path),
+      onTap: () {
+        NavigationHelper.replaceWithUrl(context, path);
+      },
       borderRadius: BorderRadius.circular(8),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),

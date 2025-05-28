@@ -1,3 +1,4 @@
+import 'package:cofiex/src/shared/helpers/navigation_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sizer/sizer.dart';
@@ -58,7 +59,11 @@ class _FormLoginState extends State<FormLogin> {
         CustomFilledButton(
           buttonColor: AppTheme.appBlue,
           onPressed: () {
+           if(kIsWeb){
             context.go('/select-company');
+           }else{
+            NavigationHelper.replaceWithUrl(context, '/select-company');
+           }
           },
           text: 'INICIAR SESIÓN',
         ),
