@@ -1,10 +1,7 @@
-import 'package:cofiex/src/config/theme/app_theme.dart';
-import 'package:cofiex/src/modules/layout/layout_bottom_navigation.dart';
-import 'package:cofiex/src/shared/widgets/inputs/custom_filled_button.dart';
-import 'package:cofiex/src/shared/widgets/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:sizer/sizer.dart';
+import 'package:flutter/foundation.dart';
+import 'package:cofiex/src/modules/request/layouts/desktop_layout.dart';
+import 'package:cofiex/src/modules/request/layouts/mobile_layout.dart';
 
 class RequestScreen extends StatelessWidget {
   const RequestScreen({super.key});
@@ -12,131 +9,22 @@ class RequestScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Solicitudes'),
-          automaticallyImplyLeading: false,
-          centerTitle: true,
-        ),
-        body: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 2.h),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
-                'Selecciona el tipo de solicitud',
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.bold,
-                  color: AppTheme.appBlue,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: 4.h),
-              _buildRequestButton(
-                context,
-                title: 'Alta de Trabajador',
-                description: 'Solicitar el registro de un nuevo trabajador',
-                icon: Icons.person_add_outlined,
-                onPressed: () {
-                  context.push('/request/up-form');
-                },
-              ),
-              SizedBox(height: 2.h),
-              _buildRequestButton(
-                context,
-                title: 'Baja de Trabajador',
-                description: 'Solicitar la baja de un trabajador',
-                icon: Icons.person_remove_outlined,
-                onPressed: () {
-                  context.push('/request/down-form');
-                },
-              ),
-              SizedBox(height: 2.h),
-              _buildRequestButton(
-                context,
-                title: 'Solicitud General',
-                description: 'Otras solicitudes o consultas',
-                icon: Icons.description_outlined,
-                onPressed: () {
-                  context.push('/request/general-form');
-                },
-              ),
-            ],
-          ),
-        ),
-        bottomNavigationBar: const LayoutBottomNavigation(),
-      ),
+      child: kIsWeb ? _WebLayout() : MobileLayout(),
     );
   }
 
-  Widget _buildRequestButton(
-    BuildContext context, {
-    required String title,
-    required String description,
-    required IconData icon,
-    required VoidCallback onPressed,
-  }) {
-    return Card(
-      elevation: 2,
-      color: AppTheme.appLightBlueWidget,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: InkWell(
-        onTap: onPressed,
-        borderRadius: BorderRadius.circular(12),
-        child: Padding(
-          padding: EdgeInsets.all(4.w),
-          child: Row(
-            children: [
-              Container(
-                width: 15.w,
-                height: 15.w,
-                decoration: BoxDecoration(
-                  color: AppTheme.appBlue.withValues( alpha: 0.1),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Icon(
-                  icon,
-                  color: AppTheme.appBlue,
-                  size: 8.w,
-                ),
-              ),
-              SizedBox(width: 4.w),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: TextStyle(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.bold,
-                        color: AppTheme.appBlue,
-                      ),
-                    ),
-                    SizedBox(height: 0.5.h),
-                    Text(
-                      description,
-                      style: TextStyle(
-                        fontSize: 12.sp,
-                        color: Colors.grey[600],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Icon(
-                Icons.arrow_forward_ios,
-                color: AppTheme.appBlue,
-                size: 6.w,
-              ),
-            ],
-          ),
-        ),
-      ),
+}
+
+class _WebLayout extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth > 900) {
+          return const DesktopLayout();
+        }
+        return const MobileLayout();
+      },
     );
   }
 }
