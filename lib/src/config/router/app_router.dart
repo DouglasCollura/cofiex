@@ -7,9 +7,9 @@ import 'package:cofiex/src/modules/auth/screens/select_company/select_company.da
 import 'package:cofiex/src/modules/base/base.dart';
 import 'package:cofiex/src/modules/company/company.dart';
 import 'package:cofiex/src/modules/notification/notification.dart';
-import 'package:cofiex/src/modules/request/forms/down_form.dart';
-import 'package:cofiex/src/modules/request/forms/general_form.dart';
-import 'package:cofiex/src/modules/request/forms/up_form.dart';
+import 'package:cofiex/src/modules/request/forms/down_form/down_form.dart';
+import 'package:cofiex/src/modules/request/forms/general_form/general_form.dart';
+import 'package:cofiex/src/modules/request/forms/up_form/up_form.dart';
 import 'package:cofiex/src/modules/request/request.dart';
 import 'package:cofiex/src/modules/upload_doc/upload_doc_.dart';
 import 'package:flutter/material.dart';

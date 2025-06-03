@@ -1,18 +1,20 @@
 import 'package:cofiex/src/config/theme/app_theme.dart';
 import 'package:cofiex/src/modules/layout/layout_bottom_navigation.dart';
+import 'package:cofiex/src/modules/request/forms/down_form/layouts/desktop_layout.dart';
 import 'package:cofiex/src/shared/widgets/inputs/custom_filled_button.dart';
 import 'package:cofiex/src/shared/widgets/inputs/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-class GeneralFormScreen extends StatefulWidget {
-  const GeneralFormScreen({super.key});
+
+class MobileLayout extends StatefulWidget {
+  const MobileLayout({super.key});
 
   @override
-  State<GeneralFormScreen> createState() => _GeneralFormScreenState();
+  State<MobileLayout> createState() => _MobileLayoutState();
 }
 
-class _GeneralFormScreenState extends State<GeneralFormScreen> {
+class _MobileLayoutState extends State<MobileLayout> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
@@ -49,6 +51,7 @@ class _GeneralFormScreenState extends State<GeneralFormScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -62,12 +65,12 @@ class _GeneralFormScreenState extends State<GeneralFormScreen> {
             child: Form(
               key: _formKey,
               child: ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: 600),
+                constraints: const BoxConstraints(maxWidth: 600),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
-                      'Solicitud General',
+                      'Baja de Trabajador',
                       style: TextStyle(
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w600,
@@ -77,15 +80,15 @@ class _GeneralFormScreenState extends State<GeneralFormScreen> {
                     ),
                     SizedBox(height: 3.h),
                     CustomTextFormField(
-                      label: 'Título de la solicitud *',
-                      hint: 'Título de la solicitud',
+                      label: 'Nombre del trabajador *',
+                      hint: 'Nombre del trabajador',
                       errorMessage: null,
                       obscureText: false,
                       keyboardType: TextInputType.text,
                       onChanged: (value) {},
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Por favor ingrese un título';
+                          return 'Por favor ingrese un nombre';
                         }
                         return null;
                       },
