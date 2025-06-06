@@ -1,5 +1,6 @@
 import 'package:cofiex/src/modules/layout/layout_bottom_navigation.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 class NotificationModel {
   final String message;
@@ -37,6 +38,10 @@ class NotificationScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          leading: Padding(
+            padding: EdgeInsets.all(12.sp),
+            child: Image.asset('assets/logo_second.png'),
+          ), 
           title: const Text('Notificaciones'),
           centerTitle: true,
           automaticallyImplyLeading: false,

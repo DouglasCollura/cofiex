@@ -18,12 +18,14 @@ class MobileLayout extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(
-              width: 50.w,
-              height: 80.w,
-              child: Center(child: Image.asset('assets/logo.jpg')),
+            Padding(
+              padding: EdgeInsets.only(bottom: 30.sp),
+              child: SizedBox(
+                width: 40.w,
+                height: 45.sp,
+                child: Center(child: Image.asset('assets/logo_second.png')),
+              ),
             ),
-
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 15.sp),
               child: SizedBox(

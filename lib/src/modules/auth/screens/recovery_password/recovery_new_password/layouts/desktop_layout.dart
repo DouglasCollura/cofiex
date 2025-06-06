@@ -19,10 +19,22 @@ class DesktopLayout extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    width: 300,
-                    height: 300,
-                    child: Image.asset('assets/logo.jpg'),
+                  Container(
+                    constraints: BoxConstraints(
+                      maxWidth:200.px,
+                      maxHeight: 200.px,
+                    ),
+                    width: 25.w,
+                    child: Image.asset('assets/logo.png'),
+                  ),
+                  const SizedBox(height: 20),
+                  Container(
+                    constraints: BoxConstraints(
+                      maxWidth:300.px,
+                      maxHeight: 300.px,
+                    ),
+                    width: 30.w,
+                    child: Image.asset('assets/logo_text.png'),
                   ),
                   const SizedBox(height: 20),
                   Text(

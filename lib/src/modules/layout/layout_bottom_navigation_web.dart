@@ -1,6 +1,7 @@
 import 'package:cofiex/src/config/theme/app_theme.dart';
 import 'package:cofiex/src/shared/helpers/navigation_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 
 class LayoutBottomNavigationWeb extends StatelessWidget {
@@ -66,7 +67,11 @@ class LayoutBottomNavigationWeb extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        NavigationHelper.replaceWithUrl(context, path);
+        if(kIsWeb){
+          NavigationHelper.replaceWithUrl(context, path);
+        }else{
+          context.go(path);
+        }
       },
       borderRadius: BorderRadius.circular(8),
       child: Container(

@@ -61,7 +61,11 @@ class DesktopLayout extends StatelessWidget {
                             if(kIsWeb){
                               context.replace('/home');
                             }else{
-                              NavigationHelper.replaceWithUrl(context, '/home');
+                              if(kIsWeb){
+                                NavigationHelper.replaceWithUrl(context, '/home');
+                              }else{
+                                context.go('/home');
+                              }
                             }
                           },
                           borderRadius: BorderRadius.circular(12),

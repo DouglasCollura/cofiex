@@ -2,6 +2,7 @@ import 'package:cofiex/src/config/theme/app_theme.dart';
 import 'package:cofiex/src/modules/base/base.dart';
 import 'package:cofiex/src/modules/layout/layout_bottom_navigation.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 
 class MobileLayout extends StatelessWidget {
@@ -20,6 +21,10 @@ class MobileLayout extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
+          leading: Padding(
+            padding: EdgeInsets.all(12.sp),
+            child: Image.asset('assets/logo_second.png'),
+          ),          
           title: const Text('Archivos'),
           centerTitle: true,
           automaticallyImplyLeading: false,

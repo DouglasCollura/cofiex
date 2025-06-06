@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cofiex/src/config/theme/app_theme.dart';
+import 'package:sizer/sizer.dart';
 import '../components/recovery_set_code_form.dart';
 
 class MobileLayout extends StatelessWidget {
@@ -18,10 +18,13 @@ class MobileLayout extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(
-              width: 200,
-              height: 200,
-              child: Center(child: Image.asset('assets/logo.jpg')),
+            Padding(
+              padding: EdgeInsets.only(bottom: 30.sp),
+              child: SizedBox(
+                width: 40.w,
+                height: 45.sp,
+                child: Center(child: Image.asset('assets/logo_second.png')),
+              ),
             ),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),

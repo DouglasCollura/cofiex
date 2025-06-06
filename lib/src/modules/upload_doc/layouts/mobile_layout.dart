@@ -11,6 +11,10 @@ class MobileLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          leading: Padding(
+            padding: EdgeInsets.all(12.sp),
+            child: Image.asset('assets/logo_second.png'),
+          ), 
           title: const Text('Subir Documento'),
           centerTitle: true,
           automaticallyImplyLeading: false,

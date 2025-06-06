@@ -10,53 +10,61 @@ class MobileLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
-      child: Container(
-        width: 100.w,
-        height: 100.h,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Column(
-          children: [
-            SizedBox(
-              width: 50.w,
-              height: 100.w,
-              child: Center(child: Image.asset('assets/logo.jpg')),
-            ),
-      
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15.sp),
-              child: SizedBox(width: 90.w, child: const FormLogin()),
-            ),
-      
-            Expanded(
-              child: SizedBox(
-                width: 100.w,
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text('¿No recuerdas tu contraseña?'),
-                      TextButton(
-                        style: TextButton.styleFrom(
-                          padding: EdgeInsets.zero,
-                          minimumSize: Size.zero,
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      child: Padding(
+        padding: EdgeInsets.only(top: 30.sp),
+        child: Container(
+          width: 100.w,
+          height: 100.h,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Column(
+            children: [
+              SizedBox(
+                width: 40.w,
+                height: 45.sp,
+                child: Center(child: Image.asset('assets/logo.png')),
+              ),
+              SizedBox(
+                width: 50.w,
+                height: 50.sp,
+                child: Center(child: Image.asset('assets/logo_text.png')),
+              ),
+        
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15.sp),
+                child: SizedBox(width: 90.w, child: const FormLogin()),
+              ),
+        
+              Expanded(
+                child: SizedBox(
+                  width: 100.w,
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text('¿No recuerdas tu contraseña?'),
+                        TextButton(
+                          style: TextButton.styleFrom(
+                            padding: EdgeInsets.zero,
+                            minimumSize: Size.zero,
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          ),
+                          onPressed: () {
+                            context.push('/recovery_password');
+                          },
+                          child: const Text(
+                            'Haz click aqui para recuperar tu contraseña',
+                          ),
                         ),
-                        onPressed: () {
-                          context.push('/recovery_password');
-                        },
-                        child: const Text(
-                          'Haz click aqui para recuperar tu contraseña',
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

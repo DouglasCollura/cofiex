@@ -62,7 +62,11 @@ class _FormLoginState extends State<FormLogin> {
            if(kIsWeb){
             context.go('/select-company');
            }else{
-            NavigationHelper.replaceWithUrl(context, '/select-company');
+            if(kIsWeb){
+              NavigationHelper.replaceWithUrl(context, '/select-company');
+            }else{
+              context.go('/select-company');
+            }
            }
           },
           text: 'INICIAR SESIÓN',
