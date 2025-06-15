@@ -32,8 +32,8 @@ class LayoutBottomNavigationMobile extends StatelessWidget {
 
             _ButtonMenu(
               icon: Icons.folder_copy_outlined,
-              isSelected: path == '/home',
-              path: '/home',
+              isSelected: path == '/base',
+              path: '/base',
             ),
             _ButtonMenu(
               icon: Icons.drive_folder_upload_outlined,

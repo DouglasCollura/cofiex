@@ -30,7 +30,7 @@ class LayoutBottomNavigationWeb extends StatelessWidget {
                 context,
                 icon: Icons.home_outlined,
                 label: 'Inicio',
-                path: '/home',
+                path: '/base',
               ),
               _buildNavItem(
                 context,

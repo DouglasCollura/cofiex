@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:cofiex/src/modules/home/home.dart';
 import 'package:cofiex/src/modules/auth/screens/login.dart';
 import 'package:cofiex/src/modules/auth/screens/recovery_password/recovery_new_password/recovery_new_password.dart';
 import 'package:cofiex/src/modules/auth/screens/recovery_password/recovery_password/recovery_password.dart';
@@ -54,6 +55,10 @@ class AppRouter {
         // ),
         GoRoute(
           path: '/home',
+          builder: (context, state) => const Home(),
+        ),
+        GoRoute(
+          path: '/base',
           builder: (context, state) => const BaseScreen(),
         ),
         GoRoute(
@@ -129,6 +134,7 @@ class AppRouter {
         final publicRoutes = [
           '/login',
           '/select-company',
+          '/base',
           '/reset',
           '/register',
           '/company',
